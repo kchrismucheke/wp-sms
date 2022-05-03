@@ -142,6 +142,7 @@ function sendSMS() {
         smsTo.roles = jQuery('select[name="wpsms_roles[]"]').val();
     } else if (smsTo.type === "numbers") {
         smsTo.numbers = jQuery('textarea[name="wp_get_number"]').val();
+        smsTo.numbers = smsTo.numbers.replace(/\n/g, ",").split(",");
     }
 
     if (smsScheduled.scheduled) {
